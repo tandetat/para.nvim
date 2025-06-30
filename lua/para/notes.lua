@@ -3,6 +3,19 @@ local M = {}
 local utils = require("para.utils")
 local config = require("para.config").config
 
+local function slugify(s)
+	-- trim leading/trailing whitespace
+	s = s:match("^%s*(.-)%s*$")
+
+	-- remove any backspaces or control characters
+	s = s:gsub("[%c]", "")
+
+	-- replace internal spaces with -
+	s = s:gsub("%s+", "-")
+
+	return s:lower()
+end
+
 local function float_select(choices, on_select)
 	local buf = vim.api.nvim_create_buf(false, true)
 	local width = math.floor(vim.o.columns * 0.3)
@@ -90,12 +103,12 @@ function M.new_note(category)
 	end
 
 	float_select(subs, function(sub)
-		vim.ui.input({ prompt = "Note title: " }, function(input)
+		vim.ui.input({ prompt = "Note title:" }, function(input)
 			if not input or input == "" then
 				utils.notify("Note creation canceled", "info")
 				return
 			end
-			local fname = input:gsub("%s+", "-"):lower() .. ".md"
+			local fname = slugify(input) .. ".md"
 			local dest = string.format("%s/%s/%s", config.vault_dir, cat, sub)
 			vim.fn.mkdir(dest, "p")
 			local file = dest .. "/" .. fname
