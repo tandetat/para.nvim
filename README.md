@@ -1,38 +1,28 @@
 <!-- LTeX: enabled=false -->
 # para.nvim
 <!-- LTeX: enabled=true -->
-<!-- TODO uncomment shields when available in dotfyle.com 
-<a href="https://dotfyle.com/plugins/chrisgrieser/para.nvim">
-<img alt="badge" src="https://dotfyle.com/plugins/chrisgrieser/para.nvim/shield"/></a>
--->
-
-
-
 <!-- toc -->
-
 - [Features](#features)
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage](#usage)
-- [Limitations](#limitations)
-- [About the author](#about-the-author)
-
 <!-- tocstop -->
 
 ## Features
-- …
+
+- Write your PARA method notes from inside Neovim
 
 ## Installation
 
 ```lua
 -- lazy.nvim
 {
-	"chrisgrieser/para.nvim",
+	"tandetat/para.nvim",
 },
 
 -- packer
 use {
-	"chrisgrieser/para.nvim",
+	"tandetat/para.nvim",
 }
 ```
 
@@ -41,27 +31,31 @@ use {
 ```lua
 -- default settings
 require("para").setup {
-	enabled = true,
+	vault_dir = nil,
+}
+```
+
+You should pass the parent directory to your PARA folders to `vault_dir`.
+
+### Example Configuration
+
+```lua
+{
+	"tandetat/para.nvim",
+	event = 'VeryLazy',
+	keys = {
+      { '<leader>pp', '<cmd>ParaNewProject<cr>', desc = 'PARA' },
+      { '<leader>pa', '<cmd>ParaNewArea<cr>', desc = 'PARA' },
+      { '<leader>pr', '<cmd>ParaNewResource<cr>', desc = 'PARA' },
+    },
+	opts = {
+		vault_dir = os.getenv('VAULT_DIR')
+	}
 }
 ```
 
 ## Usage
-- …
 
-## Limitations
-- …
-
-## About the author
-In my day job, I am a sociologist studying the social mechanisms underlying the
-digital economy. For my PhD project, I investigate the governance of the app
-economy and how software ecosystems manage the tension between innovation and
-compatibility. If you are interested in this subject, feel free to get in touch.
-
-- [Website](https://chris-grieser.de/)
-- [Mastodon](https://pkm.social/@pseudometa)
-- [ResearchGate](https://www.researchgate.net/profile/Christopher-Grieser)
-- [LinkedIn](https://www.linkedin.com/in/christopher-grieser-ba693b17a/)
-
-<a href='https://ko-fi.com/Y8Y86SQ91' target='_blank'><img height='36'
-style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3'
-border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+- `:ParaNewArea` to create a new note in Areas
+- `:ParaNewProject` to create a new note in Projects
+- `:ParaNewResource` to create a new note in Resources

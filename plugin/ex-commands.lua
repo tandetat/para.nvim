@@ -1,5 +1,0 @@
--- vim.api.nvim_create_user_command(
--- 	"Para",
--- 	function() require("para").FUNCTION_NAME() end,
--- 	{}
--- )
