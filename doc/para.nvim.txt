@@ -3,7 +3,7 @@
 ==============================================================================
 Table of Contents                                *para.nvim-table-of-contents*
 
-1. PLACEHOLDER_plugin_name                 |para.nvim-placeholder_plugin_name|
+1. para.nvim                 |para.nvim-placeholder_plugin_name|
   - Features                      |para.nvim-placeholder_plugin_name-features|
   - Installation              |para.nvim-placeholder_plugin_name-installation|
   - Configuration            |para.nvim-placeholder_plugin_name-configuration|
@@ -12,9 +12,9 @@ Table of Contents                                *para.nvim-table-of-contents*
   - About the author      |para.nvim-placeholder_plugin_name-about-the-author|
 
 ==============================================================================
-1. PLACEHOLDER_plugin_name                 *para.nvim-placeholder_plugin_name*
+1. para.nvim                 *para.nvim-placeholder_plugin_name*
 
-PLACEHOLDER_plugin_desc
+
 
 - |para.nvim-features|
 - |para.nvim-installation|
@@ -34,12 +34,12 @@ INSTALLATION                  *para.nvim-placeholder_plugin_name-installation*
 >lua
     -- lazy.nvim
     {
-        "chrisgrieser/PLACEHOLDER_plugin_name",
+        "chrisgrieser/para.nvim",
     },
     
     -- packer
     use {
-        "chrisgrieser/PLACEHOLDER_plugin_name",
+        "chrisgrieser/para.nvim",
     }
 <
 
@@ -48,7 +48,7 @@ CONFIGURATION                *para.nvim-placeholder_plugin_name-configuration*
 
 >lua
     -- default settings
-    require("PLACEHOLDER_plugin_name_short").setup {
+    require("para").setup {
         enabled = true,
     }
 <
