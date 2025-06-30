@@ -41,16 +41,16 @@ You should pass the parent directory to your PARA folders to `vault_dir`.
 
 ```lua
 {
-	"tandetat/para.nvim",
-	event = 'VeryLazy',
-	keys = {
+    'tandetat/para.nvim',
+    event = 'VeryLazy',
+    keys = {
       { '<leader>pp', '<cmd>ParaNewProject<cr>', desc = 'PARA' },
       { '<leader>pa', '<cmd>ParaNewArea<cr>', desc = 'PARA' },
       { '<leader>pr', '<cmd>ParaNewResource<cr>', desc = 'PARA' },
     },
-	opts = {
-		vault_dir = os.getenv('VAULT_DIR')
-	}
+    opts = {
+      vault_dir = os.getenv 'VAULT_DIR',
+    },
 }
 ```
 
